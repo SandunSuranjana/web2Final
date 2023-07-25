@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+	<title>Assignment-1</title>
+	<style type="text/css">
+		table{
+			width: 978px;
+			height: auto;
+			border: 0.3;
+			border-spacing:0px;
+
+		}
+		th, td{
+			text-align: center;
+			height: 15px;
+			font-size: 15px;
+
+
+		}
+		th{
+			background-color: orange;
+			height: 30px;
+
+		}
+		td{
+			background-color: #26363b;
+			color: white;
+		}
+		div{
+			width: 978px;
+			height: 35px;
+			margin-top: 5px;
+			background-color: #185566;
+			color: white;
+			font-size: 20px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	
+		<table id="arrayTable"  class="animate__animated animate__fadeInUp">
+		
+        <thead>
+        	<tr>
+        		<th colspan="3" style="font-size: 24px; color: #185566; ">All student Names and Marks</th>
+        	</tr>
+            <tr>
+                <th>St:No</th>
+                <th>Student Name</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody id="1">
+        
+        </tbody>
+    </table><br>
+
+    <div id="avg" class="animate__animated animate__fadeInUp"></div>
+    <div id="total" class="animate__animated animate__fadeInUp"></div><br>
+    
+    <table id="over90" class="animate__animated animate__fadeInUp" >
+    	
+        <thead>
+        	<tr>
+        		<th colspan="3" style="font-size: 24px; color: #185566; ">Student who scored above 90 marks</th>
+        	</tr>
+            <tr>
+                <th>St:NO</th>
+                <th>Student Name</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+    </table><br>
+    
+    <table id="place" class="animate__animated animate__fadeInUp" >
+    	
+        <thead>
+        	<tr>
+        		<th colspan="3" style="font-size: 24px; color: #185566; ">Student marks in descending oder</th>
+        	</tr>
+            <tr>
+                <th>St:No</th>
+                <th>Student Name</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+    </table>
+
+	
+	
+		<script type="text/javascript">
+		// Array of student names
+		const names = ["Wang", "Chen", "Zhao", "Liu", "Yamamoto", "Tanaka"];
+
+
+		// Array of student scores
+		const score = [80, 75, 92, 60, 91, 82];
+
+		// print all student and their Marks
+		lnt = score.length; 
+		const tableBody = document.querySelector('#arrayTable tbody');
+		for (var i = 0; i < lnt; i++) {
+			const row = document.createElement('tr');
+
+		    const indexCell = document.createElement('td');
+		    indexCell.textContent = i+1;
+
+		    const valueCell = document.createElement('td');
+		    valueCell.textContent = names[i];
+		    const valueCell2 = document.createElement('td');
+		    valueCell2.textContent = score[i];
+
+		    row.appendChild(indexCell);
+		    row.appendChild(valueCell);
+		    row.appendChild(valueCell2);
+
+		    tableBody.appendChild(row);
+		}
+		document.write("<br>");
+
+		// Calculate total score
+		var totalScore = 0;
+		for (var i = 0; i < score.length; i++) {
+		  totalScore += score[i];
+		}
+
+
+		// Calculate average score
+		var averageScore = "Average Score is: "+(totalScore / score.length);
+		var totalScore = "Total Score is: "+totalScore;
+
+
+
+		// Display total and average score
+		// document.write("Total Score: " + totalScore,"<br>");
+		// document.write("Average Score: " + averageScore,"<br><br>");
+		document.getElementById("avg").textContent = averageScore;
+		document.getElementById("total").textContent = totalScore;
+
+
+		// Display students with scores over 90
+		const over90 = document.querySelector('#over90 tbody');
+		for (var i = 0; i < score.length; i++) {
+		  if (score[i] > 90) {
+		    const row = document.createElement('tr');
+
+		    const indexCell = document.createElement('td');
+		    indexCell.textContent = i+1;
+
+		    const valueCell = document.createElement('td');
+		    valueCell.textContent = names[i];
+		    const valueCell2 = document.createElement('td');
+		    valueCell2.textContent = score[i];
+
+		    row.appendChild(indexCell);
+		    row.appendChild(valueCell);
+		    row.appendChild(valueCell2);
+
+		    over90.appendChild(row);
+		  }
+		}
+
+
+		// Sort Scores in descending order
+		
+		lnt = score.length; 
+		const places = document.querySelector('#place tbody');
+		for (var i = 0; i < lnt; i++) {
+			const mx = Math.max(...score);
+			const ind = score.indexOf(mx);
+			
+			
+			const row = document.createElement('tr');
+
+		    const indexCell = document.createElement('td');
+		    indexCell.textContent = i+1;
+
+		    const valueCell = document.createElement('td');
+		    valueCell.textContent = names[ind];
+		    const valueCell2 = document.createElement('td');
+		    valueCell2.textContent = score[ind];
+
+		    row.appendChild(indexCell);
+		    row.appendChild(valueCell);
+		    row.appendChild(valueCell2);
+
+		    places.appendChild(row);
+		    score.splice(ind,1);
+			names.splice(ind,1);
+			
+		}
+
+		
+
+	</script>
+
+</body>
+</html>

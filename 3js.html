@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+	<style type="text/css">
+	
+		img{
+			width: 400px;
+			height: 260px;
+			border-radius: 10px;
+			margin-top: 20px;
+		}
+		.container{
+			width: 100%;
+			height: 780px;
+			margin-top: 10px 10px 10px 10px;
+			background-color: #185566;
+			color: white;
+			
+		}
+	</style>
+</head>
+<body>
+
+		<div class="container">
+			<div class="name" class="form-group">
+			<div class="col-md-10">
+				First name: <input type="text"  class="form-control" id="fname"  name="fname" placeholder="Enter your Firstname"><br>
+				  Last name: <input type="text"  class="form-control"  id="lname" name="lname" placeholder="Enter your Lastname"><br>
+				  <h4 id="name"></h4>
+				  <input type="button" class="btn btn-warning" onclick="myFunction()" value="Submit">
+			</div>
+			<br>
+			<br>
+			<br>
+
+			<script>
+			function myFunction() {
+			  var a =document.getElementById("fname").value;
+			  var b =document.getElementById("lname").value;
+			  document.getElementById("name").textContent = "Welcome "+a+" "+b;
+			}
+			
+			</script>
+		</div><br>
+
+     
+    
+    <div class="color" >
+    <div class="col-md-8">
+    	<div class="form-group">
+    		Select Color:
+    <input  type="radio" name="color" value="Red">Red
+    <input  type="radio" name="color" value="Green">Green
+    <input  type="radio" name="color" value="Blue">Blue
+    <br><br>
+     <h4 id="result"></h4>
+    <button class="btn btn-warning" type="button" onclick="displayRadioValue()">
+        Submit
+    </button>
+    	</div>
+    </div>
+    <br>
+   
+    <script>
+        function displayRadioValue() {
+            var ele = document.getElementsByName('color');
+ 
+            for (i = 0; i < ele.length; i++) {
+                if (ele[i].checked)
+                    document.getElementById("result").innerHTML
+                        = "Your Color is: " + ele[i].value;
+            }
+        }
+    </script>
+    </div>
+
+
+    <div class="language">
+    	<div class="col-md-8">
+    		<div class="form-group">
+    			<p> Select Your Language:
+        <select id="select" class="form-control">
+            <option value="Sinhala">Select</option>
+            <option value="Sinhala">Sinhala</option>
+            <option value="English">English</option>
+            <option value="Japanese">Japanese</option>
+        </select>
+    </p>
+ 	<h4 id="output"></h4>
+  
+ 
+ 
+    <button class="btn btn-warning" onclick="getOption()"> Check option </button><br>
+     
+    		</div>
+    	</div>
+    <script type="text/javascript">
+    function getOption() {
+        selectElement = document.querySelector('#select');
+        output = selectElement.value;
+        document.getElementById('output').textContent = "Language: "+output;
+    }
+    </script>
+    </div><br>
+
+	<div class="col-md-8">
+		<div class="img">
+		<button class="btn btn-danger" onClick="showImage()">View image</button>
+	<div id="first" style="height:200px; width:200px; display:none;">
+	    <img width="400" height="240" src="img/shop/img1.jpeg" onmouseover="hover(this);"/> 
+	</div>
+	  
+	<script>
+    const showImage = () => {
+        document.getElementById("first").style.display ='block';
+    }
+    function hover(img)
+	{
+	 img.src = "img/shop/img3.jpeg"
+	}
+
+	</script>
+	</div>
+	</div>
+		</div>
+
+</body>
+</html>

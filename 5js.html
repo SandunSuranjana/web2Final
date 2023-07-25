@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    
+<form id="form" class="animate__animated animate__zoomIn">
+
+    <div class='signup-container'>
+    <div class='left-container'>
+    <h1>
+      MyFitCalendar
+    </h1>
+    <div class='fitness'>
+      <img src='img/form-img.jpg'>
+    </div>
+  </div>
+  <div class='right-container'>
+    <header>
+
+      <link rel="stylesheet" href="form.css">
+      <div class="card-title">
+        <h1>Enter Your Information to Get The Best Schedule!</h1>
+      </div>
+      <div class='set'>
+        <div class='fitness-name'>
+          <label for='fitness-name'>Name</label>
+          <input id='name' placeholder="Enter Your Name" type='text' required>
+        </div>
+        
+      </div>
+      <div class='set'>
+        <div class='fitness-age'>
+          <label for='fitness-age'>Age</label>
+          <input id='fitness-age' placeholder="Enter Your Age" type='text' required>
+        </div>
+        <div class='fitness-birthday'>
+          <label for='fitness-birthday'>Birthday</label>
+          <input id='fitness-birthday' placeholder='MM/DD/YYYY' type='text' required>
+        </div>
+      </div>
+      <div class='set1'>
+        <div class='fitness-w'>
+          <label for='fitness-weight'>Weight</label>
+          <input  id='weight' placeholder="Enter in Kg" type='text' required>
+        </div>
+        <div class='fitness-h'>
+          <label for='fitness-birthday'>Height</label>
+          <input id='height' placeholder='Enter in Metres' type='text' required>
+        </div>
+      </div>
+      <div class='set'>
+        <div class='fitness-gender'>
+          <label for='fitness-gender'>Gender</label>
+          <div class='radio-container'>
+            <input id='fitness-gender-female' name='fitness-gender' type='radio' value='female'>
+            <label for='fitness-gender-female'>Female</label>
+            <input checked='' id='fitness-gender-male' name='fitness-gender' type='radio' value='male'>
+            <label for='fitness-gender-male'>Male</label>
+          </div>
+        </div>
+      
+    </header>
+    <footer>
+      
+          <button  id="next" type="submit" >Calculate the schedule</button>
+      
+    </footer>
+  </div>
+  </div>
+  <script type="text/javascript">
+      const form = document.getElementById('form');
+      const weight = document.getElementById('weight');
+      const name = document.getElementById('name');
+      const height = document.getElementById('height');
+
+      form.addEventListener('submit' ,function (e) {
+        e.preventDefault();
+
+        const fname = name.value;
+        const wgt = weight.value;
+        const hgt = height.value;
+
+        localStorage.setItem('f-name',fname);
+        localStorage.setItem('weight',wgt);
+        localStorage.setItem('height',hgt);
+
+        window.location.href = "schedule.html";
+      })
+  </script>
+</form>
+
+</body>
+</html>

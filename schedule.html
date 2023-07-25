@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="schedule.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+  </head>
+  <body>
+    <div  class="animate__animated animate__zoomIn" class="card-view">
+    <div class="class-card">
+
+      <figure class="card-banner img-holder" style="--width: 416; --height: 240;">
+        <img src="img/schedule-img.jpg" width="416" height="240" loading="lazy" class="img-cover">
+      </figure>
+    
+      <div class="card-content">
+    
+        <div class="title-wrapper">
+          <img src="img/class-icon-2.png" width="52" height="52" aria-hidden="true" alt=""
+            class="title-icon">
+    
+          <h3 class="h3">
+            <div class="card-title">Your Schedule</div>
+          </h3>
+        </div>
+    
+        <p class="card-text">
+          Exercise not only changes your body. It changes your mind, attitude & mood.
+        </p>
+    
+        
+    
+      </div>
+      <div class="card-view">
+        <div class="class-card1">
+      <h2>BMI Results</h2><hr>
+  <table border="0px;" >
+    <tr>
+      <th>User Name</th>
+      <th> Weight</th>
+      <th> Height</th>
+      <th> BMI</th>
+      
+      <th> Category</th>
+    </tr>
+    <tr>
+      <td id="name"></td>
+      <td id="weight"></td>
+      <td id="height"></td>
+      <td id="bmi"></td>
+      
+      <td id="Status" style="background-color: #3b1223; color: white;"></td>
+    </tr>
+  </table>
+
+  <h2>Meal Plan Suggestion</h2><hr>
+  <div class="meal">
+      <div class="wrapper">
+        <div class="image">
+              <img src="img/meal.jpeg" width="300" height="250"> 
+
+              <div class="content">
+                <h4 id="mplan"></h4>
+              </div>
+        </div>
+    </div>
+  </div>
+
+  <h2>Workout Plan Suggestion</h2><hr>
+  <div class="w-out">
+    <div class="wrapper">
+        <div class="image">
+              <img src="img/w-out.jpeg" width="300" height="250"> 
+              <div class="content">
+                <h4 id="Woplan"></h4>
+              </div>
+        </div>
+    </div>
+  </div>
+
+  <script>
+     const Fname = localStorage.getItem('f-name');
+     const Weight = localStorage.getItem('weight');
+     const Height = localStorage.getItem('height');
+     
+
+     
+     const BMI = Weight / (Height * Height)
+     var status = "";
+     var meal = "";
+     var wout = "";
+     if (BMI < 18.5) {
+        status = "Lower-weight";
+        meal ="Aim for a balanced diet with sufficient protein, carbohydrates, and healthy fats.Include lean protein sources such as chicken breast, fish, tofu, and legumes Incorporate whole grains like quinoa, brown rice, and whole wheat bread.Add healthy fats from sources like avocados, nuts, and olive oil.Include plenty of fruits and vegetables for added nutrients.";
+        wout ="Include strength training exercises to build muscle mass and increase overall body strength.Focus on compound exercises like squats, deadlifts, bench presses, and rows.Perform exercises with proper form and gradually increase resistance to stimulate muscle growth.Incorporate resistance training 2-3 times per week.Include aerobic exercises like brisk walking, cycling, or swimming for cardiovascular health";
+     }
+     else if(BMI <= 25){
+        status = "Normal";
+        meal =" Maintain a healthy diet with a good mix of fruits, vegetables, lean proteins, and whole grains.Include a variety of vegetables in your meals, both raw and cooked.Incorporate lean proteins like chicken, turkey, fish, eggs, and legumes.Opt for whole grain products like whole wheat pasta, brown rice, and whole grain bread.Include a moderate amount of healthy fats from sources like nuts, seeds, and olive oil.";
+        wout ="Engage in regular cardiovascular exercises like running, jogging, or cycling for at least 30 minutes a day, most days of the week.Include interval training workouts to increase intensity and challenge the cardiovascular system.Incorporate strength training exercises to maintain muscle tone and overall body strength.Focus on a full-body strength training routine 2-3 times per week, targeting major muscle groups.Include flexibility exercises like stretching or yoga to improve mobility and prevent injuries.";
+        
+     }
+     else if(BMI <= 30){
+        status = "Over-weight";
+        meal ="Consume a calorie-controlled diet with portion control and reduced intake of sugars and fats.Focus on nutrient-dense foods that are low in calories but high in fiber and protein.Include lean proteins like skinless chicken, turkey, fish, and plant-based proteins.Opt for whole grains like quinoa, oats, and whole wheat products.Increase your intake of fruits and vegetables and limit processed foods and sugary drinks.";
+        wout ="Combine cardiovascular exercises with strength training and high-intensity interval training (HIIT) for effective weight loss.Perform cardio exercises such as running, cycling, or swimming for 30-60 minutes, at least 5 times per week.Incorporate HIIT workouts that alternate between high-intensity bursts and recovery periods.Include strength training exercises to build lean muscle mass and boost metabolism.Focus on compound exercises that engage multiple muscle groups and burn more calories.";
+      
+     }
+     else{
+        status = "Obese";
+        meal ="Emphasize a well-balanced diet with reduced calorie intake and increased physical activity.Choose lean proteins like poultry, fish, tofu, and legumes.Incorporate whole grains like brown rice, whole wheat bread, and quinoa.Include plenty of fruits and vegetables for fiber and essential nutrients.Limit processed foods, sugary snacks, and beverages hig";
+        wout="Incorporate a mix of cardiovascular exercises, strength training, and flexibility exercises to promote weight loss and overall fitness.Perform moderate-intensity cardio exercises like brisk walking, elliptical training, or swimming for 30-60 minutes, most days of the week.Include strength training exercises to build lean muscle mass, improve metabolic rate, and enhance weight loss.Focus on full-body strength training workouts, targeting major muscle groups, 2-3 times per week.Engage in flexibility exercises like yoga or Pilates to improve flexibility, balance, and reduce the risk of injuries.";
+        
+     }
+     document.getElementById("bmi").textContent = BMI;
+     document.getElementById("name").textContent = Fname;
+     document.getElementById("weight").textContent = Weight;
+     document.getElementById("height").textContent = Height;
+     document.getElementById("Status").textContent = status;
+     document.getElementById("mplan").textContent = meal;
+     document.getElementById("Woplan").textContent = wout;
+    
+  </script>
+
+  
+        <div>
+          <button type="submit"><a href="5js.html">Back to form</a></button>
+        </div>
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+  </body>
+  
+</html>

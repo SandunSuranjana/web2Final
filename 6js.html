@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+  	body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(img/road.jpeg);
+}
+
+
+
+
+
+.car {
+  position: absolute;
+  bottom: 170px;
+  left: 10px;
+  width: 200px;
+  height: 150px;
+/*  background-color: #f00; /* Red */*/
+  border-radius: 5px;
+}
+  </style>
+  
+  <title>Car Moving Animation</title>
+</head>
+<body>
+  <div class="container">
+    
+    <div class="sun-moon"></div>
+    <div class="sky">
+      <div class="car" id="car"><img src="img/car.png"></div>
+    </div>
+  </div>
+  <script>
+  	const car = document.getElementById("car");
+let carPosition = 10;
+const maxPosition = window.innerWidth - 60; // Car width is 50px, add some buffer space
+
+function moveCar() {
+  carPosition += 5; // Adjust the speed of the car by changing this value
+  if (carPosition > maxPosition) {
+    carPosition = 10; // Reset the position to the left when it reaches the right end
+  }
+  car.style.left = carPosition + "px";
+  requestAnimationFrame(moveCar);
+}
+
+moveCar();
+  </script>
+</body>
+</html>
